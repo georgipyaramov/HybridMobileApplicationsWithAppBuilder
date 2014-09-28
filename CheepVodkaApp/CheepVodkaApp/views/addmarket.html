@@ -1,0 +1,14 @@
+<div data-role="view"
+     data-layout="main"
+     data-model="app.viewmodels.addMarket">
+
+    <h1>Add market</h1>
+    <label for="tb-name">Name:</label>
+    <input type="text" id="tb-name"
+           data-bind="value: name" />
+    <button data-role="button"
+            data-bind="events: {click: saveMarket}">
+        Save
+    </button>
+
+</div>

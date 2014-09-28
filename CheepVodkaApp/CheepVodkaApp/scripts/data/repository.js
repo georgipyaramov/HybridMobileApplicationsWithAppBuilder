@@ -8,7 +8,7 @@
         addMarket("Nqkoisi", 3, 42);
     }
 
-    function getMarketsFromStorage() {
+    function getDataFromStorage(dataType) {
         var storedValue = window.localStorage.getItem("appdata");
         if (storedValue == null) {
             storedValue = {};
@@ -16,13 +16,13 @@
             storedValue = JSON.parse(storedValue);
         }
 
-        storedValue.markets = storedValue.markets || [];
+        storedValue[dataType] = storedValue[dataType] || [];
 
         return storedValue;
     }
 
     function addMarket(name, lat, long) {
-        var data = getMarketsFromStorage();
+        var data = getDataFromStorage("markets");
 
         var nextId = data.markets.length + 1;
         data.markets.push({
@@ -35,12 +35,12 @@
     }
 
     function getMarkets() {
-        var data = getMarketsFromStorage();
+        var data = getDataFromStorage("markets");
         return data.markets;
     }
 
     function getMarketById(id) {
-        var data = getMarketsFromStorage();
+        var data = getDataFromStorage("markets");
         var result = null;
         for (var i = 0; i < data.markets.length; i++) {
             if (data.markets[i].id == id) {
