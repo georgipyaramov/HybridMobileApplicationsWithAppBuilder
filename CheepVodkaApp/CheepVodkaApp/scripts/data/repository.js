@@ -1,28 +1,54 @@
 (function (scope) {
     'use strict';
-    var markets = [];
 
     function initSampleData() {
-        addMarket("Fantastiko", 42, 42);
-        addMarket("Bila", 42, 42);
-        addMarket("Nqkoisi", 42, 42);
+        window.localStorage.clear();
+        addMarket("Fantastiko", 1, 42);
+        addMarket("Bila", 2, 42);
+        addMarket("Nqkoisi", 3, 42);
+    }
+
+    function getMarketsFromStorage() {
+        var storedValue = window.localStorage.getItem("appdata");
+        if (storedValue == null) {
+            storedValue = {};
+        } else {
+            storedValue = JSON.parse(storedValue);
+        }
+
+        storedValue.markets = storedValue.markets || [];
+
+        return storedValue;
     }
 
     function addMarket(name, lat, long) {
-        markets.push({
-            id: markets.length + 1,
+        var data = getMarketsFromStorage();
+
+        var nextId = data.markets.length + 1;
+        data.markets.push({
+            id: nextId,
             name: name,
             lat: lat,
             long: long
         });
+        localStorage.setItem("appdata", JSON.stringify(data));
     }
 
     function getMarkets() {
-        return markets;
+        var data = getMarketsFromStorage();
+        return data.markets;
     }
 
     function getMarketById(id) {
-        return markets[id];
+        var data = getMarketsFromStorage();
+        var result = null;
+        for (var i = 0; i < data.markets.length; i++) {
+            if (data.markets[i].id == id) {
+                result = data.markets[i];
+                break;
+            }
+        }
+        return result;
     }
 
     scope.data = {};
@@ -33,4 +59,5 @@
         getMarkets: getMarkets,
         getMarketById: getMarketById
     };
+
 }(window));

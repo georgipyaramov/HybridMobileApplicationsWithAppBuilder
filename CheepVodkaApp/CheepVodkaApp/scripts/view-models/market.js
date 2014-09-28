@@ -9,7 +9,7 @@ app.viewmodels = app.viewmodels || {};
     }
 
     scope.market = function (e) {
-        var marketId = 1; //e.view.params.id;
+        var marketId = e.view.params.id;
         var data = loadMarketData(marketId);
 
         var vm = kendo.observable({
