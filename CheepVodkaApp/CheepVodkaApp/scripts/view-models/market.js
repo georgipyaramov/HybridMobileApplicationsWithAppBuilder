@@ -8,12 +8,17 @@ app.viewmodels = app.viewmodels || {};
         return window.data.markets.getMarketById(id);
     }
 
+    function loadProductsData(id) {
+        return window.data.products.getProductsOfMarket(id);
+    }
+
     scope.market = function (e) {
         var marketId = e.view.params.id;
         var data = loadMarketData(marketId);
-
+        var products = loadProductsData(marketId);
         var vm = kendo.observable({
-            name: data.name
+            name: data.name,
+            products: products
         });
         kendo.bind(e.view.element, vm)
 

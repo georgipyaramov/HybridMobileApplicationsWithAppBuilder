@@ -88,6 +88,7 @@
     };
 
     scope.data.products = {
-        addProduct: addProduct
+        addProduct: addProduct,
+        getProductsOfMarket: getProductsOfMarket
     };
 }(window));

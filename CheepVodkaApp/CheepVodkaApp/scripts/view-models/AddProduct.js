@@ -38,7 +38,7 @@ app.viewmodels = app.viewmodels || {};
         },
         saveProduct: function () {
             alert("saved");
-            window.data.products.addProduct(this.get('name'), this.get('price'), this.get('pictureUrl'));
+            window.data.products.addProduct(this.get('name'), this.get('price'), this.get('pictureUrl'), this.get('marketId'));
         }
     });
 }(app.viewmodels));
