@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -11,6 +11,23 @@
     
 </head>
 <body>
-    
+    <div data-role="view" data-layout="main">
+        <h1>Cheap Vodka v0.1</h1>
+        <h2>(само за целители)</h2>
+    </div>
+    <div data-role="layout" data-id="main">
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </div>
+        <div data-role="footer">
+            <div data-role="tabstrip" class="tabstrip">
+                <a href="views/todos.html" data-icon="bookmarks">Todos</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
 </body>
 </html>
