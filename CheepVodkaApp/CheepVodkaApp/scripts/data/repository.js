@@ -51,13 +51,43 @@
         return result;
     }
 
+    function addProduct(name, price, url, marketId) {
+        var data = getDataFromStorage("products");
+
+        var nextId = data.products.length + 1;
+        data.products.push({
+            id: nextId,
+            name: name,
+            price: price,
+            url: url,
+            marketId: marketId
+        });
+        localStorage.setItem("appdata", JSON.stringify(data));
+    }
+
+    function getProductsOfMarket(marketId) {
+        var data = getDataFromStorage("products");
+
+        var result = [];
+        for (var i = 0; i < data.products.length; i++) {
+            if (data.products[i].marketId == marketId) {
+                result.push(data.products[i]);
+            }
+        }
+        return result;
+    }
+
     scope.data = {};
 
     scope.data.markets = {
         initSampleData: initSampleData,
         addMarket: addMarket,
         getMarkets: getMarkets,
-        getMarketById: getMarketById
+        getMarketById: getMarketById,
+        addProduct: addProduct
     };
 
+    scope.data.products = {
+        addProduct: addProduct
+    };
 }(window));

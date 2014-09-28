@@ -11,6 +11,12 @@
     
 </head>
 <body>
+    <script type="text/x-kendo-template" id="market-list-template">
+        <option id="#: id #">
+            #: name #
+        </option>
+    </script>
+
     <script type="text/x-kendo-template" id="market-template">
         <li>
             <a href="views/market.html?id=#: id #" data-role="listview-link">#: name #</a>
@@ -32,6 +38,7 @@
             <div data-role="tabstrip" class="tabstrip">
                 <a href="views/markets.html" data-icon="bookmarks">Markets</a>
                 <a href="views/addmarket.html" data-icon="add">Add market</a>
+                <a href="views/addProduct.html" data-icon="add">Add product</a>
             </div>
         </div>
     </div>
@@ -41,5 +48,6 @@
     <script src="scripts/view-models/markets.js"></script>
     <script src="scripts/view-models/market.js"></script>
     <script src="scripts/view-models/addMarket.js"></script>
+    <script src="scripts/view-models/addProduct.js"></script>
 </body>
 </html>

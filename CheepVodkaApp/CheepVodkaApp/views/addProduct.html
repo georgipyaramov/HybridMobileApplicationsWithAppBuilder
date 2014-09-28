@@ -1,0 +1,34 @@
+<div data-role="view"
+     data-layout="main"
+     data-model="app.viewmodels.addProduct">
+    <h1>Add product</h1>
+    <div>
+        <label for="tb-name">Name:</label>
+        <input type="text" id="tb-name"
+               data-bind="value: name" />
+    </div>
+    <div>
+        <label for="tb-price">Price:</label>
+        <input type="text" id="tb-price"
+               data-bind="value: price" />
+    </div>
+    <div>
+        <select data-role="dropdownlist"
+                data-bind="source: markets"
+                data-template="market-list-template">
+
+        </select>
+    </div>
+    <div>
+        <img width="100" height="100" data-bind="attr: { src: pictureUrl }" />
+        <button data-role="button"
+                data-bind="events: {click: getPicture}">
+            Take photo
+        </button>
+    </div>
+    <button data-role="button"
+            data-bind="events: {click: saveProduct}">
+        Save
+    </button>
+
+</div>

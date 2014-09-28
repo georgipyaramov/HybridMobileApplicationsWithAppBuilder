@@ -29,9 +29,11 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\data\repository.js" />
     <Content Include="scripts\view-models\addMarket.js" />
+    <Content Include="scripts\view-models\addProduct.js" />
     <Content Include="scripts\view-models\market.js" />
     <Content Include="scripts\view-models\markets.js" />
     <Content Include="views\addmarket.html" />
+    <Content Include="views\addProduct.html" />
     <Content Include="views\market.html" />
     <Content Include="views\markets.html" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />

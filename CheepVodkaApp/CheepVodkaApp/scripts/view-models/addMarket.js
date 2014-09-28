@@ -8,7 +8,6 @@ app.viewmodels = app.viewmodels || {};
         var lat = 0,
             long = 0;
         var geolocationSuccess = function(position) {
-            console.log(position)
             callback({
                 lat: position.coords.latitude,
                 long: position.coords.longitude,
@@ -16,7 +15,7 @@ app.viewmodels = app.viewmodels || {};
         }
 
         var geolocationError = function (position) {
-            console.log("error")
+            alert("Cannot get your location. Check if GPS is on.")
         }
 
         navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
