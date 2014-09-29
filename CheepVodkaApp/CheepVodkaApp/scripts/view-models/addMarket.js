@@ -56,6 +56,8 @@ app.viewmodels = app.viewmodels || {};
         showSearching: true,
         saveMarket: function () {
             window.data.markets.addMarket(this.get('name'), this.get('lat'), this.get('long'), this.get('noteUrl'));
+            alert("Saved")
+            window.appTest.navigate("views/markets.html");
         },
         noteUrl: '',
         recNote: function () {
@@ -65,8 +67,6 @@ app.viewmodels = app.viewmodels || {};
                     alert("Cannot record note.");
                     return;
                 }
-                alert(mediaFile.length)
-                alert(mediaFile[0].fullPath);
                 scope.addMarket.set('noteUrl', mediaFile[0].fullPath);
             });
         }

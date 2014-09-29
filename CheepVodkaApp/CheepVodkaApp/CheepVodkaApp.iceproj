@@ -32,10 +32,12 @@
     <Content Include="scripts\view-models\addProduct.js" />
     <Content Include="scripts\view-models\market.js" />
     <Content Include="scripts\view-models\markets.js" />
+    <Content Include="scripts\view-models\product.js" />
     <Content Include="views\addmarket.html" />
     <Content Include="views\addProduct.html" />
     <Content Include="views\market.html" />
     <Content Include="views\markets.html" />
+    <Content Include="views\product.html" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-mdpi\icon.png" />

@@ -7,7 +7,7 @@
         //    isUrgent: true
         //}];
         navigator.splashscreen.hide();
-        new kendo.mobile.Application(document.body, {
+        window.appTest = new kendo.mobile.Application(document.body, {
             transition: 'slide'
         });
     }, false);

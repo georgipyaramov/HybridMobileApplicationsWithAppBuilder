@@ -2,10 +2,10 @@
     'use strict';
 
     function initSampleData() {
-        window.localStorage.clear();
-        addMarket("Fantastiko", 1, 42);
-        addMarket("Bila", 2, 42);
-        addMarket("Nqkoisi", 3, 42);
+        ////window.localStorage.clear();
+        //addMarket("Fantastiko", 1, 42);
+        //addMarket("Bila", 2, 42);
+        //addMarket("Nqkoisi", 3, 42);
     }
 
     function getDataFromStorage(dataType) {
@@ -66,6 +66,18 @@
         localStorage.setItem("appdata", JSON.stringify(data));
     }
 
+    function getProductById(id) {
+        var data = getDataFromStorage("products");
+        var result = null;
+        for (var i = 0; i < data.products.length; i++) {
+            if (data.products[i].id == id) {
+                result = data.products[i];
+                break;
+            }
+        }
+        return result;
+    }
+
     function getProductsOfMarket(marketId) {
         var data = getDataFromStorage("products");
 
@@ -90,6 +102,7 @@
 
     scope.data.products = {
         addProduct: addProduct,
-        getProductsOfMarket: getProductsOfMarket
+        getProductsOfMarket: getProductsOfMarket,
+        getProductById: getProductById
     };
 }(window));

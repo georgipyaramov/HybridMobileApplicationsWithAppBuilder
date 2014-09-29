@@ -1,6 +1,7 @@
 <div data-role="view"
      data-layout="main"
-     data-model="app.viewmodels.addProduct">
+     data-model="app.viewmodels.addProduct"
+     data-show="app.viewmodels.addProduct.getMarkets">
     <h1>Add product</h1>
     <div>
         <label for="tb-name">Name:</label>
@@ -15,9 +16,7 @@
     <div>
         <select data-role="dropdownlist"
                 data-bind="source: markets, value: marketId"
-                data-template="market-list-template">
-
-        </select>
+                data-template="market-list-template"></select>
     </div>
     <div>
         <img width="100" height="100" data-bind="attr: { src: pictureUrl }" />
