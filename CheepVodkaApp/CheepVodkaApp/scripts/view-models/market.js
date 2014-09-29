@@ -22,7 +22,7 @@ app.viewmodels = app.viewmodels || {};
             products: products,
             playNote: function ()  {
                 var noteUrl = this.get('noteUrl');
-
+                alert(noteUrl);
                 if (noteUrl) {
                     var my_media = new Media(noteUrl,
                         // success callback
