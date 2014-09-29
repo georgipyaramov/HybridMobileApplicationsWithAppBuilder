@@ -1,19 +1,19 @@
 <div data-role="view"
      data-layout="main"
      data-model="app.viewmodels.addMarket"
-     data-init="app.viewmodels.addMarket.getCoords">
+     data-show="app.viewmodels.addMarket.getCoords">
     <h1>Add market</h1>
     <label for="tb-name">Name:</label>
     <input type="text" id="tb-name"
            data-bind="value: name" />
     <span data-bind="visible: showSearching">Searching for coordinates..</span>
+    <button data-role="button" data-bind="events: {click: getCoords}">Locate</button>
     <div data-bind="visible: coordsReady">Latitude: <span data-bind="text: lat"></span></div>
     <div data-bind="visible: coordsReady">Longtitude: <span data-bind="text: long"></span></div>
     <span>Voice note:</span>
     <button data-role="button" data-bind="events: {click: recNote}">Record</button>
-    <button data-role="button" data-bind="events: {click: playNote}">Play</button>
     <button data-role="button"
-            data-bind="visible: coordsReady, events: {click: saveMarket}">
+            data-bind="events: {click: saveMarket}">
         Save
     </button>
 

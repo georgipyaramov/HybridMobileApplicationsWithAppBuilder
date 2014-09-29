@@ -14,8 +14,8 @@ app.viewmodels = app.viewmodels || {};
             });
         }
 
-        var geolocationError = function (position) {
-            alert("Cannot get your location. Check if GPS is on.")
+        var geolocationError = function (err) {
+            callback(null, err);
         }
 
         navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
@@ -27,8 +27,7 @@ app.viewmodels = app.viewmodels || {};
         }
 
         var captureError = function (err) {
-            console.log(err);
-            alert("Cannot record note.")
+            callback(null, err);
         }
 
         navigator.device.capture.captureAudio(captureSuccess, captureError, {});
@@ -39,7 +38,14 @@ app.viewmodels = app.viewmodels || {};
         lat: 0,
         long: 0,
         getCoords: function () {
-            var data = getCoords(function (data) {
+            scope.addMarket.set('showSearching', true);
+            var data = getCoords(function (data, err) {
+                if (data == null) {
+                    console.log(err);
+                    alert("Cannot get location.");
+                    scope.addMarket.set('showSearching', false);
+                    return;
+                }
                 scope.addMarket.set('lat', data.lat);
                 scope.addMarket.set('long', data.long);
                 scope.addMarket.set('coordsReady', true);
@@ -53,8 +59,14 @@ app.viewmodels = app.viewmodels || {};
         },
         noteUrl: '',
         recNote: function () {
-            getNote(function (mediaFile) {
-                this.set('noteUrl');
+            getNote(function (mediaFile, err) {
+                if (mediaFile == null) {
+                    console.log("recordAudio():Audio" + err);
+                    alert("Cannot record note.");
+                    return;
+                }
+                alert(mediaFile);
+                scope.addMarket.set('noteUrl', mediaFile);
             });
         }
     });

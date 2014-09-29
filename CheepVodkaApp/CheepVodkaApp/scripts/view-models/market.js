@@ -24,13 +24,14 @@ app.viewmodels = app.viewmodels || {};
                 var noteUrl = this.get('noteUrl');
 
                 if (noteUrl) {
-                    var my_media = new Media(this.get('noteUrl'),
+                    var my_media = new Media(noteUrl,
                         // success callback
                         function () {
                             console.log("playAudio():Audio Success");
                         },
                         // error callback
                         function (err) {
+                            alert("Cannot play note.")
                             console.log("playAudio():Audio Error: " + err);
                         }
                     );
