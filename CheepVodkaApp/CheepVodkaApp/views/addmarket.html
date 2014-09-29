@@ -9,6 +9,9 @@
     <span data-bind="visible: showSearching">Searching for coordinates..</span>
     <div data-bind="visible: coordsReady">Latitude: <span data-bind="text: lat"></span></div>
     <div data-bind="visible: coordsReady">Longtitude: <span data-bind="text: long"></span></div>
+    <span>Voice note:</span>
+    <button data-role="button" data-bind="events: {click: recNote}">Record</button>
+    <button data-role="button" data-bind="events: {click: playNote}">Play</button>
     <button data-role="button"
             data-bind="visible: coordsReady, events: {click: saveMarket}">
         Save

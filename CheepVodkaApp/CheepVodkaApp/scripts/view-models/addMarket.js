@@ -21,6 +21,19 @@ app.viewmodels = app.viewmodels || {};
         navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
     }
 
+    function getNote(callback) {
+        var captureSuccess = function (mediaFiles) {
+            callback(mediaFiles);
+        }
+
+        var captureError = function (err) {
+            console.log(err);
+            alert("Cannot record note.")
+        }
+
+        navigator.device.capture.captureAudio(captureSuccess, captureError, {});
+    };
+
     scope.addMarket = kendo.observable({
         name: '',
         lat: 0,
@@ -36,7 +49,13 @@ app.viewmodels = app.viewmodels || {};
         coordsReady: false,
         showSearching: true,
         saveMarket: function () {
-            window.data.markets.addMarket(this.get('name'), this.get('lat'), this.get('long'));
+            window.data.markets.addMarket(this.get('name'), this.get('lat'), this.get('long'), this.get('noteUrl'));
+        },
+        noteUrl: '',
+        recNote: function () {
+            getNote(function (mediaFile) {
+                this.set('noteUrl');
+            });
         }
     });
 }(app.viewmodels));

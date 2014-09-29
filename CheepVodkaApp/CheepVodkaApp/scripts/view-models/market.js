@@ -18,7 +18,26 @@ app.viewmodels = app.viewmodels || {};
         var products = loadProductsData(marketId);
         var vm = kendo.observable({
             name: data.name,
-            products: products
+            noteUrl: data.noteUrl,
+            products: products,
+            playNote: function ()  {
+                var noteUrl = this.get('noteUrl');
+
+                if (noteUrl) {
+                    var my_media = new Media(this.get('noteUrl'),
+                        // success callback
+                        function () {
+                            console.log("playAudio():Audio Success");
+                        },
+                        // error callback
+                        function (err) {
+                            console.log("playAudio():Audio Error: " + err);
+                        }
+                    );
+                    // Play audio
+                    my_media.play();
+                }
+            }
         });
         kendo.bind(e.view.element, vm)
 

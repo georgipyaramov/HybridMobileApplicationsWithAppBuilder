@@ -51,7 +51,7 @@
         return result;
     }
 
-    function addProduct(name, price, url, marketId) {
+    function addProduct(name, price, url, marketId, noteUrl) {
         var data = getDataFromStorage("products");
 
         var nextId = data.products.length + 1;
@@ -60,7 +60,8 @@
             name: name,
             price: price,
             url: url,
-            marketId: marketId
+            marketId: marketId,
+            noteUrl: noteUrl
         });
         localStorage.setItem("appdata", JSON.stringify(data));
     }
