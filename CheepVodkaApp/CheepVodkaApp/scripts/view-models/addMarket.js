@@ -65,8 +65,9 @@ app.viewmodels = app.viewmodels || {};
                     alert("Cannot record note.");
                     return;
                 }
-                alert(mediaFile.name + " " + mediaFile.fullPath + " " + mediaFile.type);
-                scope.addMarket.set('noteUrl', mediaFile.fullPath);
+                alert(mediaFile.length)
+                alert(mediaFile[0].fullPath);
+                scope.addMarket.set('noteUrl', mediaFile[0].fullPath);
             });
         }
     });

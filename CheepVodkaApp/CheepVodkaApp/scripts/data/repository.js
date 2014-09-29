@@ -21,7 +21,7 @@
         return storedValue;
     }
 
-    function addMarket(name, lat, long) {
+    function addMarket(name, lat, long, noteUrl) {
         var data = getDataFromStorage("markets");
 
         var nextId = data.markets.length + 1;
@@ -29,7 +29,8 @@
             id: nextId,
             name: name,
             lat: lat,
-            long: long
+            long: long,
+            noteUrl: noteUrl
         });
         localStorage.setItem("appdata", JSON.stringify(data));
     }
@@ -51,7 +52,7 @@
         return result;
     }
 
-    function addProduct(name, price, url, marketId, noteUrl) {
+    function addProduct(name, price, url, marketId) {
         var data = getDataFromStorage("products");
 
         var nextId = data.products.length + 1;
@@ -60,8 +61,7 @@
             name: name,
             price: price,
             url: url,
-            marketId: marketId,
-            noteUrl: noteUrl
+            marketId: marketId
         });
         localStorage.setItem("appdata", JSON.stringify(data));
     }
