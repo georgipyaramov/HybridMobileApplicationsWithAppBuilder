@@ -6,13 +6,15 @@
     <label for="tb-name">Name:</label>
     <input type="text" id="tb-name"
            data-bind="value: name" />
+    <br />
+    <button class="button" data-role="button" data-bind="events: {click: getCoords}">Locate</button>
     <span data-bind="visible: showSearching">Searching for coordinates..</span>
-    <button data-role="button" data-bind="events: {click: getCoords}">Locate</button>
     <div data-bind="visible: coordsReady">Latitude: <span data-bind="text: lat"></span></div>
     <div data-bind="visible: coordsReady">Longtitude: <span data-bind="text: long"></span></div>
+    <br />
     <span>Voice note:</span>
-    <button data-role="button" data-bind="events: {click: recNote}">Record</button>
-    <button data-role="button"
+    <button class="button" data-role="button" data-bind="events: {click: recNote}">Record</button>
+    <button class="button" data-role="button"
             data-bind="events: {click: saveMarket}">
         Save
     </button>

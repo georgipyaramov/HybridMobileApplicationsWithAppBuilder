@@ -38,7 +38,9 @@ app.viewmodels = app.viewmodels || {};
                 alert("Add market first.");
                 window.appTest.navigate("views/addmarket.html")
             }
-            scope.addProduct.set('marketId', data[0].id);
+            else {
+                scope.addProduct.set('marketId', data[0].id);
+            }
         },
         getPicture: function () {
             var data = getPicture(function (data) {
@@ -46,9 +48,23 @@ app.viewmodels = app.viewmodels || {};
             });
         },
         saveProduct: function () {
+            var name = this.get('name'),
+                price = this.get('price'),
+                pictureUrl = this.get('pictureUrl'),
+                marketId = this.get('marketId');
+
+            if (!name) {
+                alert('Product must have a name!');
+                return;
+            }
+            if (!price) {
+                alert('Product must have a price!');
+                return;
+            }
+
             alert("saved");
-            window.data.products.addProduct(this.get('name'), this.get('price'), this.get('pictureUrl'), this.get('marketId'));
-            window.appTest.navigate("views/market.html?id=" + this.get('marketId'))
+            window.data.products.addProduct(name, price, pictureUrl, marketId);
+            window.appTest.navigate("views/market.html?id=" + marketId);
         }
     });
 }(app.viewmodels));

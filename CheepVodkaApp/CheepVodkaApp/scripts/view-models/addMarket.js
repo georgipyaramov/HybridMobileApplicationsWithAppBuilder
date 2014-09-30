@@ -55,7 +55,17 @@ app.viewmodels = app.viewmodels || {};
         coordsReady: false,
         showSearching: true,
         saveMarket: function () {
-            window.data.markets.addMarket(this.get('name'), this.get('lat'), this.get('long'), this.get('noteUrl'));
+            var name = this.get('name'),
+                lat = this.get('lat'),
+                long = this.get('long'),
+                noteUrl = this.get('noteUrl')
+
+            if (!name) {
+                alert('Market must have a name!')
+                return;
+            }
+
+            window.data.markets.addMarket(name, lat, long, noteUrl);
             alert("Saved")
             window.appTest.navigate("views/markets.html");
         },

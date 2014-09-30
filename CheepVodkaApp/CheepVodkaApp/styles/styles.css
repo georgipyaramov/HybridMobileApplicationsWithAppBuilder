@@ -1,0 +1,57 @@
+.km-content {
+    background-color: #000000 !important;
+}
+
+.km-list > li > a{
+    background-color: #656565;
+    color: white !important;
+    display: block;
+    padding: 12px;
+    border-radius: 7px;
+}
+
+.km-list > li{
+    background-color: #656565;
+    color: white !important;
+    /*display: block;
+    padding: 12px;*/
+    border-radius: 7px;
+    margin: 5px;
+}
+
+.button {
+    background: #656565 !important;
+    color: white !important;
+    display: block !important;
+    border-radius: 7px !important;
+    margin: 20px !important;
+}
+
+button:active {
+    background: #a7a7a7 !important;
+}
+
+.km-list > li:active{
+    background-color: #a7a7a7;
+}
+.km-list > li > a:active{
+    background-color: #a7a7a7;
+}
+
+h1, h2, h3, h4, label, span, div{
+    color: white;
+}
+
+input {
+    border-radius: 7px !important;
+    width: 96% !important;
+    margin-bottom: 15px !important;
+}
+
+select {
+    border-radius: 7px !important;
+    width: 100% !important;
+    margin-top: 25px !important;
+    margin-bottom: 15px !important;
+}
+

@@ -33,6 +33,7 @@
     <Content Include="scripts\view-models\market.js" />
     <Content Include="scripts\view-models\markets.js" />
     <Content Include="scripts\view-models\product.js" />
+    <Content Include="styles\styles.css" />
     <Content Include="views\addmarket.html" />
     <Content Include="views\addProduct.html" />
     <Content Include="views\market.html" />
@@ -95,6 +96,7 @@
     <Folder Include="kendo\styles\" />
     <Folder Include="kendo\styles\images\" />
     <Folder Include="kendo\typescript\" />
+    <Folder Include="styles\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\data\" />
     <Folder Include="scripts\view-models\" />

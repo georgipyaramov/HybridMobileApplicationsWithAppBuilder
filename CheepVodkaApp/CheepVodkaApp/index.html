@@ -4,6 +4,7 @@
     <title></title>
     <meta charset="utf-8" />
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link href="styles/styles.css" rel="stylesheet"/>
 
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
@@ -13,29 +14,25 @@
 <body>
     <script type="text/x-kendo-template" id="product-template">
         <li onclick="">
-            <img width="100" height="100" data-bind="attr: { src: url }" />:
-            <a href="views/product.html?id=#: id #" data-role="listview-link">#: name#</a>
-            <span data-bind="text: price"></span>$
+            <p><img width="100" height="100" data-bind="attr: { src: url }" /></p>
+            <p>Name: <a href="views/product.html?id=#: id #" data-role="listview-link">#: name#</a></p>
+            <p>Price: <span data-bind="text: price"></span>$</p>
         </li>
     </script>
-
     <script type="text/x-kendo-template" id="market-list-template">
         <option value="#: id #">
             #: name #
         </option>
     </script>
-
     <script type="text/x-kendo-template" id="market-template">
         <li>
             <a href="views/market.html?id=#: id #" data-role="listview-link">#: name #</a>
         </li>
     </script>
-
     <div data-role="view" data-layout="main">
         <h1>Cheap Vodka v0.1</h1>
         <h2>(само за целители)</h2>
     </div>
-
     <div data-role="layout" data-id="main">
         <div data-role="header">
             <div data-role="navbar">
@@ -51,7 +48,6 @@
             </div>
         </div>
     </div>
-
     <script src="scripts/app.js"></script>
     <script src="scripts/data/repository.js"></script>
     <script src="scripts/view-models/markets.js"></script>
